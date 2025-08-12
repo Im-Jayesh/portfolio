@@ -1,6 +1,8 @@
 import Nav from "../components/Nav";
 import ModelViewer from "../components/ModelViewer";
 import { Link } from 'react-router-dom';
+import PageLoader from "../components/PageLoader";
+import { useState } from "react";
 
 import { Instagram, Linkedin, Github } from 'lucide-react';
 import MasonryGallery from "../components/MasonryGallery";
@@ -49,6 +51,7 @@ let projects = [
 
 export default function Home() {
 
+    const [loadingDone, setLoadingDone] = useState(false);
 
     const downloadResume = () => {
         const link = document.createElement("a");
@@ -62,11 +65,11 @@ export default function Home() {
 
   return (
     <>
-    
+    {!loadingDone && <PageLoader onFinish={() => setLoadingDone(true)} />}
     <Nav/>
     {/* Hero section */}
     <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h3>Jai Shri Laxmi Narayan</h3>
+        <h3 className="px-2 font-mono">Jai Shri Laxmi Narayan</h3>
         <div className="flex flex-col md:flex-row items-center justify-between">
             {/* left side */}
             <div className="py-16 md:py-28 w-full md:w-[50%] md:h-full">
@@ -94,8 +97,8 @@ export default function Home() {
             </div>
 
             {/* Right Side */}
-            <div className="md:py-28 w-full md:w-[50%] h-[50vh] md:h-[65vh]">
-                <ModelViewer modelName={'model'}/>
+            <div className="pt-6 md:py-28 w-full md:w-[50%] h-[50vh] md:h-[65vh]">
+                <ModelViewer modelName={'model-draco'}/>
             </div>
         </div>
     </section>
@@ -125,7 +128,7 @@ export default function Home() {
                 <p className="font-mono font-normal text-lg p-2 text-right">
                     "I am a Fresher. I don't have any real experience but I have participated in many hackathons and made many unique projects. Here are some of my pics for yall to see."
                 </p>
-                <ModelViewer modelName={'saturn'} color={'#F6E0EB'}/>
+                <ModelViewer modelName={'saturn-draco'} color={'#F6E0EB'}/>
             </div>
 
         </div>
@@ -148,7 +151,7 @@ export default function Home() {
 
             {/* Right Side */}
             
-            <div className="py-10 px-6 m-4 w-full h-[70vh] md:w-[60%] md:h-screen overflow-auto overflow-y-scroll 
+            <div className="py-10 px-6 w-full h-[70vh] md:w-[60%] md:h-screen overflow-auto overflow-y-scroll 
             [scrollbar-width:none] 
             [-ms-overflow-style:none] 
             [&::-webkit-scrollbar]:hidden">

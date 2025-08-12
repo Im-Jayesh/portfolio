@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { send } from '@emailjs/browser';
 import Nav from "../components/Nav";
+import PageLoader from "../components/PageLoader";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState(null); // success, error, or validation message
   const [cooldown, setCooldown] = useState(false);
+  const [loadingDone, setLoadingDone] = useState(false);
 
   // Basic sanitization to remove HTML tags
   const sanitizeInput = (str) => {
@@ -92,6 +94,7 @@ export default function Contact() {
 
   return (
     <>
+    {!loadingDone && <PageLoader onFinish={() => setLoadingDone(true)} />}
       <Nav />
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-28 min-h-[70vh] flex flex-col justify-center">
         <h1 className="font-poppins font-bold text-5xl mb-6">Contact Me.</h1>

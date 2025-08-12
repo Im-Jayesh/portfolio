@@ -1,5 +1,7 @@
 import Nav from "../components/Nav";
 // import TiltCard from "../components/TiltCard";
+import PageLoader from "../components/PageLoader";
+import { useState } from "react";
 
 let projects = [
     {
@@ -27,12 +29,15 @@ let projects = [
 ];
 
 const Projects = () => {
+    const [loadingDone, setLoadingDone] = useState(false);
     return (
         <>
+
+        {!loadingDone && <PageLoader onFinish={() => setLoadingDone(true)} />}
             <Nav/>
                 <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row justify-between">
-                        <div className="py-10 px-10 m-4 w-full h-full overflow-auto md:w-full md:h-screen overflow-y-scroll 
+                        <div className="py-10 px-10 w-full h-full overflow-auto md:w-full md:h-screen overflow-y-scroll 
                         [scrollbar-width:none] 
                         [-ms-overflow-style:none] 
                         [&::-webkit-scrollbar]:hidden">
