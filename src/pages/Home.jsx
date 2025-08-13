@@ -98,7 +98,7 @@ export default function Home() {
 
             {/* Right Side */}
             <div className="pt-6 md:py-28 w-full md:w-[50%] h-[50vh] md:h-[65vh]">
-                <ModelViewer modelName={'model-draco'}/>
+                <ModelViewer modelName={'model-draco-production'}/>
             </div>
         </div>
     </section>
@@ -175,11 +175,11 @@ export default function Home() {
     </section>
 
     <footer className="flex flex-wrap mx-auto px-4 py-4 sm:px-6 lg:px-8 bg-gray-900 h-full w-full">
-        <div class="w-[207px]">
-        <h3 class="font-poppins font-semibold text-2xl text-white p-4">
+        <div className="w-[207px]">
+        <h3 className="font-poppins font-semibold text-2xl text-white p-4">
             Jayesh Suthar.
         </h3>
-        <p class="font-poppins font-normal text-sm text-white p-4">If it works, don't touch it.</p>
+        <p className="font-poppins font-normal text-sm text-white p-4">If it works, don't touch it.</p>
     </div>
             <div>
                 

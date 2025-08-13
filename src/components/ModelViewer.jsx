@@ -1,10 +1,13 @@
 import React, { Suspense } from "react";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { OrbitControls, useGLTF, DRACOLoader } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
+// Set Draco decoder once
 useGLTF.setDecoderPath("https://www.gstatic.com/draco/v1/decoders/");
-useGLTF.preload("/model-draco.glb");
+
+// Preload all models
+useGLTF.preload("/model-draco-production.glb");
 useGLTF.preload("/saturn-draco.glb");
 
 function Model({ name }) {
@@ -28,7 +31,7 @@ export default function ModelViewer({ modelName, color }) {
         />
         <ambientLight intensity={1.5} />
 
-        <Suspense fallback={<Html center>Loading...</Html>}>
+        <Suspense fallback={null}>
           <Model name={modelName} />
         </Suspense>
 
